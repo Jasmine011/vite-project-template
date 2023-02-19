@@ -1,4 +1,4 @@
-# vite + typescript + vue3
+# vite + typescript + vue3 + pinia
 
 # 配置 sass
 
