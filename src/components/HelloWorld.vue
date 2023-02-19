@@ -1,38 +1,19 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
-
-const count = ref(0)
-</script>
-
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+  <div>
+    你好呀{{name}}，今年{{age}}了吧
+  <br/>
+  我是你的两倍，我{{doubleAge}}
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <button @click="emp.addAge">新增</button>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import useStore from '../store'
+const { emp } = useStore()
+
+const { name, age, doubleAge} = storeToRefs(emp)
+
+</script>
+
+<style lang="scss" scoped></style>
